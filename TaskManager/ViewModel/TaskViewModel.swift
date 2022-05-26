@@ -16,4 +16,16 @@ class TaskViewModel: ObservableObject {
     @Published var taskDeadline: Date = Date()
     @Published var taskType: String = "Basic"
 
+    func addTask(context: NSManagedObjectContext) -> Bool {
+        let task  = Task (context: context)
+        task.title = taskTitle
+        task.color = taskColor
+        task.deadline = taskDeadline
+        task.type = taskType
+        
+        if let _ = try? context.save() {
+            return true
+        }
+        return false 
+    }
 }
