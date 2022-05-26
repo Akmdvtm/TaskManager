@@ -10,6 +10,7 @@ import SwiftUI
 struct Home: View {
     @StateObject var taskModel: TaskViewModel = .init()
     @Namespace var animation
+    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.deadline, ascending: false)], predicate: nil, animation: .easeInOut) var tasks: FetchedResults<Task>
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -59,10 +60,22 @@ struct Home: View {
         }
         
         .fullScreenCover(isPresented: $taskModel.openEditTask) {
+            taskModel.resetTaskData()
+        } content: {
             AddNewTask()
                 .environmentObject(taskModel)
         }
+
     }
+    
+    @ViewBuilder
+    func TaskView() -> some View {
+        LazyVStack(spacing: 20) {
+            
+        }
+        .padding(.top)
+    }
+    
     
     @ViewBuilder
     func CustomSegmentedBar() -> some View{
