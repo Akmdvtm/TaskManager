@@ -4,10 +4,11 @@
         <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="deadline" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="isComleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="taskDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Task" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="Task" positionX="-63" positionY="-18" width="128" height="119"/>
     </elements>
 </model>
